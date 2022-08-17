@@ -1,0 +1,35 @@
+<div class="container p-3">
+  <h1><%= @restaurant.name %></h1>
+
+  <div class="restaurant-info py-3">
+      <%= @restaurant.category.capitalize %> restaurant |
+      <%= @restaurant.address %> |
+      <%= @restaurant.phone_number %> |
+  </div>
+
+  <div class="review-new py-3">
+  <h3>Enter a new review</h3>
+    <div class="form">
+        <%= simple_form_for [@restaurant, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating, collection: 0..5 %>
+          <%= f.submit class: "btn btn-primary"%>
+        <% end %>
+    </div>
+  </div>
+
+
+  <h2 class="py-3">Reviews for <%= @restaurant.name %></h2>
+  <div class="row d-flex">
+    <% @restaurant.reviews.each do |review| %>
+    <div class="review-card card col-6 p-3">
+      <li>
+        Review: <%= review.content %>
+        Rating: <%= review.rating %>
+        <% end %>
+      </li>
+    </div>
+  </div>
+
+  <%= link_to "Back to all restaurants", restaurants_path %>
+</div>

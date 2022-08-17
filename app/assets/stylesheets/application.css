@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+.container {
+  background-color: #CCC7C2;
+}
+
+ li {
+  list-style-type: none;
+}
+li h4 {
+  color: #5a5c8b;
+  font-weight: bold;
+}
+li a {
+  text-decoration: none;
+  color: green;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cards > .card {
+  width: 200px;
+  padding: 20px;
+  margin: 30px;
+  background-color: rgba(255, 255, 255, 0.126);
+  border: 2px solid white;
+  box-shadow: 3px 3px 4px white;
+}

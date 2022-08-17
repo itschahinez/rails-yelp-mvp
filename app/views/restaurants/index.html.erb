@@ -1,0 +1,25 @@
+<div class="body">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80;">
+    <div class="container-banner">
+      <h1>See all restaurants</h1>
+      <%= link_to "Add a new restaurant", new_restaurant_path, class: "button" %>
+    </div>
+  </div>
+
+  <div class="container">
+      <ul class="cards">
+        <% @restaurants.each do |restaurant| %>
+          <div class="card">
+            <li>
+            <%= link_to restaurant_path(restaurant) do  %>
+              <h4><%= restaurant.name  %></h4>
+              <% end %>
+            <%= restaurant.category.capitalize %> restaurant <br>
+            <%= restaurant.address %> <br>
+            <%= restaurant.phone_number %> <br>
+          </div>
+            </li>
+        <% end %>
+      </ul>
+  </div>
+</div>
